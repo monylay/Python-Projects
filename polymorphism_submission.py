@@ -33,6 +33,21 @@ class Employee(User):
         else:
             print("The pin or email is incorrect")
 
+#Child class Admin
+class Admin(User):
+    admin_code = "ADMIN456"
+
+    #override getLoginInfo method
+    def getLoginInfo(self):
+        entry_name = input("Enter your name: ")
+        entry_email = input("Enter your email: ")
+        entry_code = input("Enter your admin code: ")
+
+        if (entry_email == self.email and entrry_code == self.admin_code):
+            print("Welcome back, Admin {}!".format(entry_name))
+        else:
+            print("The admin code or email is incorrect.")
+
 #The following code invokes the methods inside each class for User and Employee
 
 customer = User()
@@ -40,3 +55,6 @@ customer.getLoginInfo()
 
 manager = Employee()
 manager.getLoginInfo()
+
+administrator = Admin()
+administrator.getLoginInfo()
